@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Pedidos</title>
+    <link rel="stylesheet" href="style.css"> <!-- Enlace al archivo de CSS -->
+</head>
+<body>
+
+    <div id="order-section">
+        <h2>Country Burguer</h2>
+
+        <!-- Selección de producto principal -->
+        <div id="product-selection">
+            <h3>Selecciona tu producto</h3>
+            <button class="product-option" data-product="hamburguesa">Hamburguesa</button>
+            <button class="product-option" data-product="perrito">Perrito caliente</button>
+            <button class="product-option" data-product="bocadillo">Bocadillo</button>
+        </div>
+
+        <!-- Ingredientes adicionales -->
+        <div id="ingredients-selection">
+            <h3>Ingredientes adicionales</h3>
+            <label><input type="checkbox" class="ingredient" data-ingredient="bacon"> Bacon</label>
+            <label><input type="checkbox" class="ingredient" data-ingredient="cebolla"> Cebolla caramelizada</label>
+            <label><input type="checkbox" class="ingredient" data-ingredient="huevo"> Huevo frito</label>
+            <label><input type="checkbox" class="ingredient" data-ingredient="champis"> Champiñones</label>
+            <label><input type="checkbox" class="ingredient" data-ingredient="jalapenos"> Jalapeños</label>
+            <label><input type="checkbox" class="ingredient" data-ingredient="mayonesa"> Mayonesa especial</label>
+        </div>
+
+        <!-- Complementos -->
+        <div id="side-selection">
+            <h3>Complementos</h3>
+            <label><input type="checkbox" class="side" data-side="patatas"> Patatas fritas</label>
+            <label><input type="checkbox" class="side" data-side="ensalada"> Ensalada</label>
+            <label><input type="checkbox" class="side" data-side="aros"> Aros de cebolla</label>
+        </div>
+
+        <!-- Bebidas -->
+        <div id="drink-selection">
+            <h3>Bebidas</h3>
+            <select id="drink">
+                <option value="agua">Agua</option>
+                <option value="refresco">Refresco</option>
+                <option value="cerveza">Cerveza sin alcohol</option>
+            </select>
+        </div>
+
+        <!-- Resumen de precio -->
+        <div id="price-summary">
+            <h3>Precio total</h3>
+            <ul id="price-breakdown"></ul>
+            <p>Total: <span id="total-price">0.00€</span></p>
+        </div>
+
+        <!-- Botón para confirmar el pedido -->
+        <button id="confirm-order">Confirmar Pedido</button>
+    </div>
+
+    <script src="script.js"></script> <!-- Enlace al archivo de JavaScript -->
+</body>
+</html>
