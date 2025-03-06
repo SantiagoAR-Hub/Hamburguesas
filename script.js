@@ -60,7 +60,7 @@ function updatePrice() {
 }
 
 // Eventos de selección de producto principal
-document.querySelectorAll('.product-option').forEach(button => {
+document.querySelectorAll('.opcion-producto').forEach(button => {
     button.addEventListener('click', () => {
         orderDetails.product = button.dataset.product;
         updatePrice();

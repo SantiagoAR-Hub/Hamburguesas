@@ -1,7 +1,25 @@
-#order-section {
+#seccion-orden {
     padding: 20px;
     font-family: Arial, sans-serif;
 }
+
+.contenedor-producto {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align: center; /* Asegura que el texto también esté centrado */
+}
+
+.img-producto {
+    width: 300px;
+    height: 300px;
+
+}
+.opcion-producto {
+    display: block; /* Hace que el botón esté en una línea separada */
+    margin-top: 10px; /* Espacio entre la imagen y el botón */
+}
+
 
 h2 {
     text-align: center;
@@ -28,16 +46,16 @@ label {
     margin-bottom: 5px;
 }
 
-#price-summary {
+#sumario-precio {
     margin-top: 20px;
 }
 
-#price-breakdown {
+#desgloce-precio {
     list-style-type: none;
     padding: 0;
 }
 
-#price-breakdown li {
+#desgloce-precio li {
     display: flex;
     justify-content: space-between;
 }

@@ -8,17 +8,36 @@
 </head>
 <body>
 
-    <div id="order-section">
+    <div id="seccion-orden">
         <h2>Country Burguer</h2>
 
         <!-- Selección de producto principal -->
         <div id="seleccion-producto">
             <h3>Selecciona tu producto</h3>
-            <button class="product-option" data-product="hamburguesa">Hamburguesa Simple</button>
-            <button class="product-option" data-product="cheeseburguer">Cheese Burguer</button>
-            <button class="product-option" data-product="perrito">Perrito caliente</button>
-            <button class="product-option" data-product="bocadilloJamon">Bocadillo de Jamón</button>
-            <button class="product-option" data-product="bocadilloChorizo">Bocadillo de Chorizo</button>
+            <div class="contenedor-producto">
+                <h4>Hamburguesa Simple</h4>
+                <img class="img-producto" src="imagenes/hamburguesa1.png" alt="">
+                <button class="opcion-producto" data-product="hamburguesa">+ Agregar</button>
+            </div>
+
+            <div class="contenedor-producto">
+                <h4>Cheese Burguer</h4>
+                <img class="img-producto" src="imagenes/hamburguesa2.png" alt="">
+                <button class="opcion-producto" data-product="cheeseburguer">+ Agregar</button>
+            </div>
+
+            <div class="contenedor-producto">
+                <h4>Bacon Burguer</h4>
+                <img class="img-producto" src="imagenes/hamburguesa3.png" alt="">
+                <button class="opcion-producto" data-product="baconburguer">+ Agregar</button>
+            </div>
+
+            <div class="contenedor-producto">
+                <h4>Bocadillo de Pollo</h4>
+                <img class="img-producto" src="imagenes/bocadillo1.png" alt="">
+                <button class="opcion-producto" data-product="bocadillopollo">+ Agregar</button>
+            </div>
+            
         </div>
 
         <!-- Ingredientes adicionales -->
