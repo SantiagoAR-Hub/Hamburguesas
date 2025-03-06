@@ -3,11 +3,16 @@
     font-family: Arial, sans-serif;
 }
 
+body {
+    background-color: rgb(198, 198, 169);
+}
+
 .contenedor-producto {
     display: flex;
     flex-direction: column; /* Coloca los elementos en columna */
     align-items: center; /* Centra los elementos horizontalmente */
     text-align: center; /* Asegura que el texto también esté centrado */
+    margin-top: 80px;
 }
 
 .img-producto {
@@ -18,6 +23,11 @@
 .opcion-producto {
     display: block; /* Hace que el botón esté en una línea separada */
     margin-top: 10px; /* Espacio entre la imagen y el botón */
+}
+
+.img-extra {
+    width: 100px;
+    height: 100px;
 }
 
 
