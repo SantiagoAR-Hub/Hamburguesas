@@ -6,30 +6,90 @@
 body {
     background-color: rgb(198, 198, 169);
 }
+.fila-productos {
+    display: flex;
+    flex-wrap: wrap;  /* Permite que los productos se envuelvan en nuevas filas */
+    justify-content: space-around;  /* Centra los productos en la fila */
+}
 
 .contenedor-producto {
+    
     display: flex;
     flex-direction: column; /* Coloca los elementos en columna */
     align-items: center; /* Centra los elementos horizontalmente */
     text-align: center; /* Asegura que el texto también esté centrado */
-    margin-top: 80px;
+    margin-top: 20px;
+    background-color: chocolate;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease-in-out; /* Animación de escala */
+    width: 48%;  /* Ajuste de tamaño para que se muestren 2 productos por fila */
+    margin-bottom: 20px; /* Separación entre filas */
+
+    
+
+}
+.contenedor-producto:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
 }
 
 .img-producto {
     width: 300px;
     height: 300px;
-
 }
+
 .opcion-producto {
     display: block; /* Hace que el botón esté en una línea separada */
     margin-top: 10px; /* Espacio entre la imagen y el botón */
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Color verde del botón */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Bordes redondeados en el botón */
+    transition: background-color 0.3s;
+}
+
+.opcion-producto:hover {
+    background-color: #45a049; /* Color al pasar el ratón */
 }
 
 .img-extra {
     width: 100px;
-    height: 100px;
+    height: 120px;
 }
 
+.lista-complementos, .lista-ingredientes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.complemento, .ingrediente {
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: chocolate; /* Fondo similar al de los productos */
+    padding: 10px;
+    margin-top: 10px;
+    width: 10%;  /* Alinea dos complementos/ingredientes por fila */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.complemento:hover, .ingrediente:hover {
+    transform: scale(1.05);
+}
+
+.complemento input, .ingrediente input {
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align: center;
+    margin-right: 5px;
+}
 
 h2 {
     text-align: center;
@@ -60,12 +120,24 @@ label {
     margin-top: 20px;
 }
 
-#desgloce-precio {
+#desglose-precio {  /* CORREGIDO: antes era #desgloce-precio */
     list-style-type: none;
     padding: 0;
 }
 
-#desgloce-precio li {
+#desglose-precio li {  /* CORREGIDO */
     display: flex;
     justify-content: space-between;
+}
+
+
+.complemento, .ingrediente {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* Asegurar margen adecuado para los checkboxes */
+.complemento input, .ingrediente input {
+    margin-right: 5px;
 }

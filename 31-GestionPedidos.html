@@ -14,71 +14,138 @@
         <!-- Selección de producto principal -->
         <div id="seleccion-producto">
             <h3>Selecciona tu producto</h3>
-            <div class="contenedor-producto">
-                <h4>Hamburguesa Simple</h4>
-                <img class="img-producto" src="imagenes/hamburguesa1.png" alt="">
-                <button class="opcion-producto" data-product="hamburguesa">+ Agregar</button>
+            <div class="fila-productos">
+                <div class="contenedor-producto">
+                    <h4>Hamburguesa Simple</h4>
+                    <img class="img-producto" src="imagenes/hamburguesa1.png" alt="">
+                    <button class="opcion-producto" data-producto="hamburguesa">+ Agregar</button>
+                </div>
+        
+                <div class="contenedor-producto">
+                    <h4>Hamburguesa con Queso</h4>
+                    <img class="img-producto" src="imagenes/hamburguesa2.png" alt="">
+                    <button class="opcion-producto" data-producto="cheeseburguer">+ Agregar</button>
+                </div>
+        
+                <div class="contenedor-producto">
+                    <h4>Hamburguesa con Bacon</h4>
+                    <img class="img-producto" src="imagenes/hamburguesa3.png" alt="">
+                    <button class="opcion-producto" data-producto="baconburguer">+ Agregar</button>
+                </div>
+        
+                <div class="contenedor-producto">
+                    <h4>Bocadillo de Pollo</h4>
+                    <img class="img-producto" src="imagenes/bocadillo1.png" alt="">
+                    <button class="opcion-producto" data-producto="bocadillopollo">+ Agregar</button>
+                </div>
             </div>
-
-            <div class="contenedor-producto">
-                <h4>Cheese Burguer</h4>
-                <img class="img-producto" src="imagenes/hamburguesa2.png" alt="">
-                <button class="opcion-producto" data-product="cheeseburguer">+ Agregar</button>
-            </div>
-
-            <div class="contenedor-producto">
-                <h4>Bacon Burguer</h4>
-                <img class="img-producto" src="imagenes/hamburguesa3.png" alt="">
-                <button class="opcion-producto" data-product="baconburguer">+ Agregar</button>
-            </div>
-
-            <div class="contenedor-producto">
-                <h4>Bocadillo de Pollo</h4>
-                <img class="img-producto" src="imagenes/bocadillo1.png" alt="">
-                <button class="opcion-producto" data-product="bocadillopollo">+ Agregar</button>
-            </div>
-            
         </div>
+        
+        </div>    
 
-        <!-- Ingredientes adicionales -->
         <div id="seleccion-ingredientes">
             <h3>Ingredientes adicionales</h3>
-            <label> <img class="img-extra" src="imagenes/bacon.png" alt=""> <input type="checkbox" class="ingredient" data-ingredient="bacon">Bacon</label>
-            <label><input type="checkbox" class="ingredient" data-ingredient="cebolla"> Cebolla caramelizada</label>
-            <label><input type="checkbox" class="ingredient" data-ingredient="huevo"> Huevo frito</label>
-            <label><input type="checkbox" class="ingredient" data-ingredient="champis"> Champiñones</label>
-            <label><input type="checkbox" class="ingredient" data-ingredient="jalapenos"> Jalapeños</label>
-            <label><input type="checkbox" class="ingredient" data-ingredient="mayonesa"> Mayonesa especial</label>
+            <div class="lista-ingredientes">
+                <div class="ingrediente">
+                    <input type="checkbox" class="ingrediente" data-ingrediente="bacon">
+                    <label for="bacon"><img class="img-extra" src="imagenes/bacon.png" alt=""> Bacon</label>
+                </div>
+                <div class="ingrediente">
+                    <input type="checkbox" class="ingrediente" data-ingrediente="cebolla">
+                    <label for="cebolla"><img class="img-extra" src="imagenes/cebolla.png" alt=""> Cebolla caramelizada</label>
+                </div>
+                <div class="ingrediente">
+                    <input type="checkbox" class="ingrediente" data-ingrediente="pickle">
+                    <label for="pickle"><img class="img-extra" src="imagenes/pickles.png" alt=""> Pickle</label>
+                </div>
+                <div class="ingrediente">
+                    <input type="checkbox" class="ingrediente" data-ingrediente="queso">
+                    <label for="queso"><img class="img-extra" src="imagenes/queso.png" alt=""> Queso Cheddar</label>
+                </div>
+                <div class="ingrediente">
+                    <input type="checkbox" class="ingrediente" data-ingrediente="ketchup">
+                    <label for="ketchup"><img class="img-extra" src="imagenes/salsat.png" alt=""> Ketchup</label>
+                </div>
+            </div>
         </div>
+
+
 
         <!-- Complementos -->
-        <div id="seleccion-complementos">
+        <div id="seleccion-complemento">
             <h3>Complementos</h3>
-            <label><input type="checkbox" class="side" data-side="patatas"> Patatas fritas</label>
-            <label><input type="checkbox" class="side" data-side="ensalada"> Ensalada</label>
-            <label><input type="checkbox" class="side" data-side="aros"> Aros de cebolla</label>
+            <div class="lista-complementos">
+                <div class="complemento">
+                    <input type="checkbox" class="complemento" data-complemento="patatas">
+                    <label for="patatas"><img class="img-extra" src="imagenes/patatas.png" alt=""> Patatas fritas</label>
+                </div>
+                <div class="complemento">
+                    <input type="checkbox" class="complemento" data-complemento="alitas">
+                    <label for="alitas"><img class="img-extra" src="imagenes/alitas.png" alt=""> Alitas</label>
+                </div>
+                <div class="complemento">
+                    <input type="checkbox" class="complemento" data-complemento="aros">
+                    <label for="aros"><img class="img-extra" src="imagenes/aros.png" alt=""> Aros de cebolla</label>
+                </div>
+            </div>
         </div>
 
+        
         <!-- Bebidas -->
         <div id="seleccion-bebidas">
             <h3>Bebidas</h3>
-            <select id="drink">
+            <select id="bebida">
                 <option value="agua">Agua</option>
                 <option value="refresco">Refresco</option>
                 <option value="cerveza">Cerveza sin alcohol</option>
             </select>
         </div>
 
+        <div>
+            <h2>Pedidos en Proceso</h2>
+
+        <ul id="desglose-precio"></ul>
+
+    </div>
+
         <!-- Resumen de precio -->
         <div id="sumario-precio">
             <h3>Precio total</h3>
-            <ul id="desgloce-precio"></ul>
+        <!--    <ul id="desglose-precio"></ul>-->
             <p>Total: <span id="precio-total">0.00€</span></p>
         </div>
+<br><br>        
+
+        <div id="cantidad-producto">
+            <h3>Cantidad de Producto</h3>
+            <button id="decrementar">-</button>
+            <span id="cantidad">1</span>
+            <button id="incrementar">+</button>
+        </div>
+
+<br><br><br>        
 
         <!-- Botón para confirmar el pedido -->
         <button id="confirmar-orden">Confirmar Pedido</button>
     </div>
+<br><br><br>
+
+    <!--<div id="zona-display">
+        
+        <ul id="pedidos-en-proceso"></ul>
+        
+        <h2>Pedidos Realizados</h2>
+        <ul id="pedidos-realizados"></ul>
+        
+        <h2>Pedidos Listos para Recoger</h2>
+        <ul id="pedidos-listos"></ul>
+    </div>
+
+    <div>
+    <button id="confirmar-recogida" onclick="confirmarRecogida()">Confirmar Recogida</button>
+    </div>-->
+
+    
 
     <script src="script.js"></script>
 </body>
