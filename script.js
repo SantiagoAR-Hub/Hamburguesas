@@ -1,114 +1,123 @@
 // Precios base y elementos
-const prices = {
-    hamburger: 5.00,
-    hotdog: 3.50,
-    sandwich: 4.00,
-    ingredient: 0.50,
-    sides: {
+const precios = {
+    hamburguesa: 5.00,
+    cheeseburguesa: 6.00,
+    baconburguesa: 7.00,
+    bocadillopollo: 5.50,
+    ingrediente: 0.50,
+    acompanamientos: {
         patatas: 2.00,
         ensalada: 1.50,
         aros: 2.50
     },
-    drinks: {
+    bebidas: {
         agua: 1.00,
         refresco: 1.50,
         cerveza: 2.00
     }
 };
 
-// Variables de pedido
-let orderDetails = {
-    product: '',
-    ingredients: [],
-    sides: [],
-    drink: '',
-    totalPrice: 0
+// Variables del pedido
+let pedido = {
+    producto: '',
+    ingredientes: [],
+    acompanamientos: [],
+    bebida: 'agua', // Valor por defecto
+    precioTotal: 0
 };
 
 // Función para actualizar el precio total y desglose
-function updatePrice() {
-    let total = prices[orderDetails.product] || 0;
+function actualizarPrecio() {
+    let total = precios[pedido.producto] || 0;
 
     // Ingredientes adicionales
-    orderDetails.ingredients.forEach(ingredient => total += prices.ingredient);
+    pedido.ingredientes.forEach(() => total += precios.ingrediente);
 
-    // Complementos
-    orderDetails.sides.forEach(side => total += prices.sides[side]);
+    // Acompañamientos
+    pedido.acompanamientos.forEach(acompanamiento => total += precios.acompanamientos[acompanamiento]);
 
     // Bebida
-    total += prices.drinks[orderDetails.drink];
+    total += precios.bebidas[pedido.bebida];
 
-    orderDetails.totalPrice = total;
+    pedido.precioTotal = total;
 
     // Mostrar el desglose de precios
-    const breakdown = document.getElementById('price-breakdown');
-    breakdown.innerHTML = '';
-    breakdown.innerHTML += `<li>Producto: ${orderDetails.product} - ${prices[orderDetails.product].toFixed(2)}€</li>`;
-    
-    orderDetails.ingredients.forEach(ingredient => {
-        breakdown.innerHTML += `<li>Ingrediente: ${ingredient} - 0.50€</li>`;
+    const desglose = document.getElementById('desgloce-precio');
+    desglose.innerHTML = '';
+
+    if (pedido.producto) {
+        desglose.innerHTML += `<li>Producto: ${pedido.producto} - ${precios[pedido.producto].toFixed(2)}€</li>`;
+    }
+
+    pedido.ingredientes.forEach(ingrediente => {
+        desglose.innerHTML += `<li>Ingrediente: ${ingrediente} - 0.50€</li>`;
     });
 
-    orderDetails.sides.forEach(side => {
-        breakdown.innerHTML += `<li>Complemento: ${side} - ${prices.sides[side].toFixed(2)}€</li>`;
+    pedido.acompanamientos.forEach(acompanamiento => {
+        desglose.innerHTML += `<li>Acompañamiento: ${acompanamiento} - ${precios.acompanamientos[acompanamiento].toFixed(2)}€</li>`;
     });
 
-    breakdown.innerHTML += `<li>Bebida: ${orderDetails.drink} - ${prices.drinks[orderDetails.drink].toFixed(2)}€</li>`;
+    desglose.innerHTML += `<li>Bebida: ${pedido.bebida} - ${precios.bebidas[pedido.bebida].toFixed(2)}€</li>`;
 
     // Actualizar el precio total
-    document.getElementById('total-price').textContent = `${total.toFixed(2)}€`;
+    document.getElementById('precio-total').textContent = `${total.toFixed(2)}€`;
 }
 
 // Eventos de selección de producto principal
-document.querySelectorAll('.opcion-producto').forEach(button => {
-    button.addEventListener('click', () => {
-        orderDetails.product = button.dataset.product;
-        updatePrice();
+document.querySelectorAll('.opcion-producto').forEach(boton => {
+    boton.addEventListener('click', () => {
+        pedido.producto = boton.dataset.product;
+        actualizarPrecio();
     });
 });
 
 // Eventos de selección de ingredientes adicionales
-document.querySelectorAll('.ingredient').forEach(checkbox => {
-    checkbox.addEventListener('change', () => {
-        const ingredient = checkbox.dataset.ingredient;
-        if (checkbox.checked) {
-            orderDetails.ingredients.push(ingredient);
+document.querySelectorAll('.ingrediente').forEach(casilla => {
+    casilla.addEventListener('change', () => {
+        const ingrediente = casilla.dataset.ingredient;
+        if (casilla.checked) {
+            pedido.ingredientes.push(ingrediente);
         } else {
-            orderDetails.ingredients = orderDetails.ingredients.filter(i => i !== ingredient);
+            pedido.ingredientes = pedido.ingredientes.filter(i => i !== ingrediente);
         }
-        updatePrice();
+        actualizarPrecio();
     });
 });
 
-// Eventos de selección de complementos
-document.querySelectorAll('.side').forEach(checkbox => {
-    checkbox.addEventListener('change', () => {
-        const side = checkbox.dataset.side;
-        if (checkbox.checked) {
-            orderDetails.sides.push(side);
+// Eventos de selección de acompañamientos
+document.querySelectorAll('.acompanamiento').forEach(casilla => {
+    casilla.addEventListener('change', () => {
+        const acompanamiento = casilla.dataset.side;
+        if (casilla.checked) {
+            pedido.acompanamientos.push(acompanamiento);
         } else {
-            orderDetails.sides = orderDetails.sides.filter(s => s !== side);
+            pedido.acompanamientos = pedido.acompanamientos.filter(a => a !== acompanamiento);
         }
-        updatePrice();
+        actualizarPrecio();
     });
 });
 
 // Evento de selección de bebida
-document.getElementById('drink').addEventListener('change', (event) => {
-    orderDetails.drink = event.target.value;
-    updatePrice();
+document.getElementById('bebida').addEventListener('change', (evento) => {
+    pedido.bebida = evento.target.value;
+    actualizarPrecio();
 });
 
 // Confirmar pedido
-document.getElementById('confirm-order').addEventListener('click', () => {
-    // Guardar el pedido en el almacenamiento local
-    const orderId = localStorage.getItem('lastOrderId') || 0;
-    const newOrderId = parseInt(orderId) + 1;
-    localStorage.setItem('lastOrderId', newOrderId);
+document.getElementById('confirmar-orden').addEventListener('click', () => {
+    if (!pedido.producto) {
+        alert("Debes seleccionar un producto antes de confirmar el pedido.");
+        return;
+    }
 
-    const order = { ...orderDetails, orderId: newOrderId };
-    localStorage.setItem(`order-${newOrderId}`, JSON.stringify(order));
+    // Guardar el pedido en el almacenamiento local
+    const idPedido = localStorage.getItem('ultimoPedidoId') || 0;
+    const nuevoIdPedido = parseInt(idPedido) + 1;
+    localStorage.setItem('ultimoPedidoId', nuevoIdPedido);
+
+    const nuevoPedido = { ...pedido, idPedido: nuevoIdPedido };
+    localStorage.setItem(`pedido-${nuevoIdPedido}`, JSON.stringify(nuevoPedido));
 
     // Enviar el pedido a la zona de display
-    alert(`Pedido confirmado: #${newOrderId}`);
+    alert(`Pedido confirmado: #${nuevoIdPedido}`);
 });
