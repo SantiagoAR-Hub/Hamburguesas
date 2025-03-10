@@ -4,34 +4,36 @@
 }
 
 body {
+   
+
     background-color: rgb(198, 198, 169);
 }
 .fila-productos {
     display: flex;
-    flex-wrap: wrap;  /* Permite que los productos se envuelvan en nuevas filas */
-    justify-content: space-around;  /* Centra los productos en la fila */
+    flex-wrap: wrap;  
+    justify-content: space-around;  
 }
 
 .contenedor-producto {
     
     display: flex;
-    flex-direction: column; /* Coloca los elementos en columna */
-    align-items: center; /* Centra los elementos horizontalmente */
-    text-align: center; /* Asegura que el texto también esté centrado */
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
     margin-top: 20px;
     background-color: chocolate;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    transition: transform 0.3s ease-in-out; /* Animación de escala */
-    width: 48%;  /* Ajuste de tamaño para que se muestren 2 productos por fila */
-    margin-bottom: 20px; /* Separación entre filas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease-in-out; 
+    width: 48%;  
+    margin-bottom: 20px; 
 
     
 
 }
 .contenedor-producto:hover {
-    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+    transform: scale(1.05); 
 }
 
 .img-producto {
@@ -40,19 +42,19 @@ body {
 }
 
 .opcion-producto {
-    display: block; /* Hace que el botón esté en una línea separada */
-    margin-top: 10px; /* Espacio entre la imagen y el botón */
+    display: block; 
+    margin-top: 10px; 
     padding: 10px 20px;
-    background-color: #4CAF50; /* Color verde del botón */
+    background-color: #4CAF50; 
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 5px; /* Bordes redondeados en el botón */
+    border-radius: 5px; 
     transition: background-color 0.3s;
 }
 
 .opcion-producto:hover {
-    background-color: #45a049; /* Color al pasar el ratón */
+    background-color: #45a049; 
 }
 
 .img-extra {
@@ -65,18 +67,56 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 20px;
+}    
+#seleccion-ingredientes {
+    background-image: url(imagenes/fondo.png);
+    background-size: contain; /* Asegura que la imagen se ajuste completamente al tamaño de la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita si es más pequeña que la pantalla */
+    background-position: center; /* Centra la imagen en la pantalla */
+    background-attachment: fixed; /* Hace que la imagen permanezca fija al hacer scroll */
+    background-color: white;
+}
+
+#seleccion-complemento {
+    background-size: contain; /* Asegura que la imagen se ajuste completamente al tamaño de la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita si es más pequeña que la pantalla */
+    background-position: center; /* Centra la imagen en la pantalla */
+    background-attachment: fixed; /* Hace que la imagen permanezca fija al hacer scroll */
+    
+    background-image: url(imagenes/fondo.png);
+    background-color: white;
+}
+
+#seleccion-bebidas {
+    background-size: contain; /* Asegura que la imagen se ajuste completamente al tamaño de la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita si es más pequeña que la pantalla */
+    background-position: center; /* Centra la imagen en la pantalla */
+    background-attachment: fixed; /* Hace que la imagen permanezca fija al hacer scroll */
+    
+    background-image: url(imagenes/fondo.png);
+    background-color: white;
+}
+#pedidos-en-proceso {
+    background-size: contain; /* Asegura que la imagen se ajuste completamente al tamaño de la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita si es más pequeña que la pantalla */
+    background-position: center; /* Centra la imagen en la pantalla */
+    background-attachment: fixed; /* Hace que la imagen permanezca fija al hacer scroll */
+    
+    background-image: url(imagenes/fondo.png);
+    background-color: white;
+
 }
 
 .complemento, .ingrediente {
-    align-items: center; /* Centra los elementos horizontalmente */
+    align-items: center; 
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: chocolate; /* Fondo similar al de los productos */
+    background-color: chocolate; 
     padding: 10px;
     margin-top: 10px;
-    width: 10%;  /* Alinea dos complementos/ingredientes por fila */
+    width: 10%;  
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -86,17 +126,48 @@ body {
 }
 
 .complemento input, .ingrediente input {
-    align-items: center; /* Centra los elementos horizontalmente */
+    align-items: center; 
     text-align: center;
     margin-right: 5px;
 }
+#portada{
+   
+    background-size: cover; /* Asegura que la imagen cubra todo el div */
+    background-position: center; /* Centra la imagen */
+    color: white; /* Asegura que el texto sea visible sobre la imagen */
+    text-align: center; /* Centra el texto */
+    padding: 50px 0; /* Añade algo de espacio arriba y abajo */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+    background-image: url(imagenes/portada.png);
+}
+
+h1 {
+    
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
 
 h2 {
+    background-color: #e8c204; /* Fondo verde */
+    color: white; /* Texto blanco */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
     text-align: center;
+    margin-left: 500px;
+    margin-right: 500px;
+    margin-top: 50px;
     margin-bottom: 10px;
 }
 h3 {
+    background-color: #205d22; /* Fondo verde */
+    color: white; /* Texto blanco */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    margin-right: 1400px;
+    margin-top: 100px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 button {
@@ -118,9 +189,16 @@ label {
 
 #sumario-precio {
     margin-top: 20px;
+    background-size: contain; /* Asegura que la imagen se ajuste completamente al tamaño de la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita si es más pequeña que la pantalla */
+    background-position: center; /* Centra la imagen en la pantalla */
+    background-attachment: fixed; /* Hace que la imagen permanezca fija al hacer scroll */
+    
+    background-image: url(imagenes/fondo.png);
+    background-color: white;
 }
 
-#desglose-precio {  /* CORREGIDO: antes era #desgloce-precio */
+#desglose-precio {  
     list-style-type: none;
     padding: 0;
 }
@@ -130,14 +208,30 @@ label {
     justify-content: space-between;
 }
 
+#confirmar-orden {
+    background-color: #9f0e0e; /* Fondo verde */
+    color: white; /* Texto blanco */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    text-align: center;
+    margin-left: 700px;
+    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-size: larger;
+
+}
+
 
 .complemento, .ingrediente {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
+   
 }
 
-/* Asegurar margen adecuado para los checkboxes */
+
 .complemento input, .ingrediente input {
     margin-right: 5px;
 }
+ 

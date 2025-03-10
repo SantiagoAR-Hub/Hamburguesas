@@ -1,8 +1,8 @@
 // Precios base y elementos
 const precios = {
     hamburguesa: 5.00,
-    cheeseburguer: 6.00,  // Coincide con data-product en HTML
-    baconburguer: 7.00,   // Coincide con data-product en HTML
+    cheeseburguer: 6.00,  
+    baconburguer: 7.00,  
     bocadillopollo: 5.50,
     ingrediente: 0.50,
     complemento: {
@@ -23,7 +23,7 @@ let pedido = {
     cantidad: 1,
     ingredientes: [],
     complemento: [],
-    bebida: 'agua', // Valor por defecto
+    bebida: 'agua', 
     precioTotal: 0,
     estado: 'Realizado',
     tiempoCreacion: new Date().getTime(),
@@ -35,18 +35,17 @@ let pedido = {
 function actualizarPrecio() {
     let total = (precios[pedido.producto] || 0) * pedido.cantidad;
 
-    // Ingredientes adicionales
     pedido.ingredientes.forEach(() => total += precios.ingrediente);
 
-    // Acompañamientos
+    // complementos
     pedido.complemento.forEach(complemento => total += precios.complemento[complemento]);
 
-    // Bebida
+    //bbidas
     total += precios.bebidas[pedido.bebida];
 
     pedido.precioTotal = total;
 
-    // Mostrar el desglose de precios
+    //desglose de precios
     const desglose = document.getElementById('desglose-precio');
     desglose.innerHTML = '';
 
@@ -109,7 +108,7 @@ document.getElementById('bebida').addEventListener('change', (evento) => {
     actualizarPrecio();
 });
 
-// Incrementar la cantidad
+// incrementar cantidad
 document.getElementById('incrementar').addEventListener('click', () => {
     if (pedido.cantidad < 50) {
         pedido.cantidad++;
@@ -120,7 +119,7 @@ document.getElementById('incrementar').addEventListener('click', () => {
     }
 });
 
-// Decrementar la cantidad
+// decrementar la cantidad
 document.getElementById('decrementar').addEventListener('click', () => {
     if (pedido.cantidad > 1) {
         pedido.cantidad--;
@@ -147,7 +146,7 @@ document.getElementById('confirmar-orden').addEventListener('click', () => {
     const nuevoPedido = { ...pedido, idPedido: nuevoIdPedido };
     localStorage.setItem(`pedido-${nuevoIdPedido}`, JSON.stringify(nuevoPedido));
 
-    // Enviar el pedido a la zona de display
+    // Enviar el pedido a la zona de display, incompleto
     alert(`Pedido confirmado: #${nuevoIdPedido}`);
 
      // Limpiar la tabla de desglose de precio
@@ -158,9 +157,9 @@ document.getElementById('confirmar-orden').addEventListener('click', () => {
      pedido.producto = '';
      pedido.ingredientes = [];
      pedido.complemento = [];
-     pedido.cantidad = 1; // Resetea la cantidad a 1
-     pedido.bebida = 'agua'; // Resetea la bebida a su valor por defecto
-     pedido.precioTotal = 0; // Restablece el precio total
+     pedido.cantidad = 1; 
+     pedido.bebida = 'agua'; 
+     pedido.precioTotal = 0; 
  
      // Restablecer el número de unidades de producto a 1
      document.getElementById('cantidad').textContent = '1';
